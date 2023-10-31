@@ -158,6 +158,9 @@ $(call soong_config_set_bool,libfmjni,no_fm_firmware,true)
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/gps/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
+# HWUI
+TARGET_USES_VULKAN := true
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti
