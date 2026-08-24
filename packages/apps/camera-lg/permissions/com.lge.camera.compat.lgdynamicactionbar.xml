@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <library name="com.lge.camera.compat.lgdynamicactionbar"
+             file="/system_ext/framework/lge-camera-compat.jar" />
+</permissions>
