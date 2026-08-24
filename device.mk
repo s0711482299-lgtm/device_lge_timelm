@@ -28,7 +28,8 @@ PRODUCT_PACKAGES += \
     TimelmLineageSettingsProviderOverlay \
     TimelmSettingsOverlay \
     TimelmSystemUIOverlay \
-    LGEAISound
+    LGEAISound \
+    UdfpsDim
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
