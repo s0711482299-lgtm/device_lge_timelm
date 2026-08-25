@@ -365,6 +365,13 @@ PRODUCT_SOONG_NAMESPACES += \
 # Recovery
 $(call soong_config_set,lineage_recovery,bootloader_message_offset,128)
 
+# Radio
+# LG sends usable LTE/NR measurements only through LgeRadio.  The 1.5 wrapper
+# bridges them to the standard Android signal-strength callback while keeping
+# every other radio request delegated to the stock Qualcomm service.
+PRODUCT_PACKAGES += \
+    android.hardware.radio@1.4-service.lge
+
 # Rootdir
 PRODUCT_PACKAGES += \
     init.mdm.sh \
