@@ -157,6 +157,8 @@ PRODUCT_PACKAGES += \
     lge_camera_film_9 \
     lge_camera_film_10
 
+PRODUCT_BOOT_JARS += \
+    lge-camera-compat
 
 LG_CAMERA_NATIVE_LIBS := \
     libLGCameraSolution-jni.so \

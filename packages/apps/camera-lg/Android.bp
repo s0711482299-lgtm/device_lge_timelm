@@ -3,10 +3,9 @@ java_library {
     srcs: ["compat/src/**/*.java"],
     installable: true,
     platform_apis: true,
-    system_ext_specific: true,
 }
 
-// LG framework resource package required by the stock camera. It must be
+// LG framework resource package required by the stock camera.  It must be
 // re-signed with the Lineage platform certificate because its manifest uses
 // android.uid.system and publishes the com.lge.resources shared library.
 android_app_import {
@@ -30,8 +29,6 @@ android_app_import {
     },
     enforce_uses_libs: false,
     required: [
-        "lge-camera-compat",
-        "com.lge.camera.compat.lgdynamicactionbar.xml",
         "lge_camera_hiddenapi_whitelist.xml",
         "privapp-permissions-lge-camera.xml",
     ],
@@ -58,13 +55,6 @@ dex_import {
 prebuilt_etc {
     name: "com.lge.camerasolution.xml",
     src: "permissions/com.lge.camerasolution.xml",
-    sub_dir: "permissions",
-    system_ext_specific: true,
-}
-
-prebuilt_etc {
-    name: "com.lge.camera.compat.lgdynamicactionbar.xml",
-    src: "permissions/com.lge.camera.compat.lgdynamicactionbar.xml",
     sub_dir: "permissions",
     system_ext_specific: true,
 }
