@@ -215,6 +215,9 @@ BOARD_WLAN_DEVICE := qcwcn
 # Stock LG camera uses proprietary ELF libraries copied into system_ext.
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
+# Debug Build Broken Dupe Rules
+BUILD_BROKEN_DUP_RULES := true
+
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
