@@ -28,7 +28,7 @@ PRODUCT_PACKAGES += \
     NcmTetheringOverlay \
     TimelmTelephonyOverlay \
     LGEAISound \
-    SettingsOverlay \
+    TimelmSettingsOverlay \
     SystemUIOverlay \
     WifiResourcesOverlay
 
