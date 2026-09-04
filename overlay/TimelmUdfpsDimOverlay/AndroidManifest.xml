@@ -12,7 +12,7 @@
 
     <application
         android:allowBackup="false"
-        android:label="UDFPS Dimmer">
+        android:label="UDFPS BlackMask">
 
         <service
             android:name=".LhbmOverlayService"
