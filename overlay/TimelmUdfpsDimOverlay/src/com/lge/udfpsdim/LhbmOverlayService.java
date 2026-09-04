@@ -11,7 +11,6 @@ import android.os.FileObserver;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -25,8 +24,6 @@ public class LhbmOverlayService extends Service {
 
     private static final String TAG = "LhbmOverlay";
     private static final String LHBM_PATH = "/sys/class/panel/brightness/fp_lhbm";
-    private static final int MAX_BRIGHTNESS = 255;
-    private static final float MIN_ALPHA = 0.7f;
 
     private WindowManager mWindowManager;
     private View mOverlayView;
@@ -66,29 +63,29 @@ public class LhbmOverlayService extends Service {
     }
 
     private void createNotificationChannel() {
-    NotificationChannel channel = new NotificationChannel(
-            "lhbm_overlay",
-            "LHBM Overlay",
-            NotificationManager.IMPORTANCE_MIN);   // <-- MIN, not LOW
-    channel.setDescription("Fingerprint dimmer service");
-    channel.setShowBadge(false);
-    channel.setSound(null, null);
-    channel.enableVibration(false);
-    channel.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
-    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-    if (nm != null) nm.createNotificationChannel(channel);
-}
+        NotificationChannel channel = new NotificationChannel(
+                "lhbm_overlay",
+                "LHBM Overlay",
+                NotificationManager.IMPORTANCE_MIN);
+        channel.setDescription("Fingerprint dimmer service");
+        channel.setShowBadge(false);
+        channel.setSound(null, null);
+        channel.enableVibration(false);
+        channel.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (nm != null) nm.createNotificationChannel(channel);
+    }
 
     private Notification buildNotification() {
-    return new Notification.Builder(this, "lhbm_overlay")
-            .setContentTitle("LHBM Overlay")
-            .setContentText("Running")
-            .setSmallIcon(android.R.drawable.ic_menu_view)   // or a transparent drawable
-            .setOngoing(true)
-            .setSilent(true)
-            .setOnlyAlertOnce(true)
-            .build();
-}
+        return new Notification.Builder(this, "lhbm_overlay")
+                .setContentTitle("LHBM Overlay")
+                .setContentText("Running")
+                .setSmallIcon(android.R.drawable.ic_menu_view)
+                .setOngoing(true)
+                .setSilent(true)
+                .setOnlyAlertOnce(true)
+                .build();
+    }
 
     private void createOverlay() {
         if (mOverlayCreated) return;
@@ -99,8 +96,7 @@ public class LhbmOverlayService extends Service {
         mOverlayParams = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,   
-                
+                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                         | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
                         | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
@@ -122,23 +118,25 @@ public class LhbmOverlayService extends Service {
 
     private void startObserver() {
         if (mFileObserver != null) return;
+
         mFileObserver = new FileObserver(LHBM_PATH, FileObserver.MODIFY) {
             @Override
             public void onEvent(int event, String path) {
                 int value = readLhbmValue();
                 Log.d(TAG, "LHBM value changed: " + value);
+
                 mMainHandler.post(() -> {
                     if (value != 0) {
-                        int brightness = getCurrentBrightness();
-                        float alpha = 1.0f - ((float) brightness / MAX_BRIGHTNESS);
-                        alpha = Math.max(MIN_ALPHA, Math.min(1.0f, alpha));
-                        setOverlayWindowAlpha(alpha);
+                        mMainHandler.postDelayed(() -> {
+                            setOverlayWindowAlpha(1.0f);
+                        }, 30);
                     } else {
                         setOverlayWindowAlpha(0.0f);
                     }
                 });
             }
         };
+
         mFileObserver.startWatching();
         Log.d(TAG, "FileObserver started on " + LHBM_PATH);
     }
@@ -151,15 +149,6 @@ public class LhbmOverlayService extends Service {
             Log.e(TAG, "Failed to read LHBM node", e);
         }
         return 0;
-    }
-
-    private int getCurrentBrightness() {
-        try {
-            return Settings.System.getInt(getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS);
-        } catch (Settings.SettingNotFoundException e) {
-            return MAX_BRIGHTNESS;
-        }
     }
 
     private void setOverlayWindowAlpha(float alpha) {
