@@ -11,15 +11,22 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/lge/timelm/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/halcyon/config/common.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_timelm
+PRODUCT_NAME := halcyon_timelm
 PRODUCT_DEVICE := timelm
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := LM-V600
 
+# Halcyon flags
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_HAS_UDFPS := true
+TARGET_ENABLE_BLUR := true
+
+# GMS
+WITH_GAPPS := false
 PRODUCT_GMS_CLIENTID_BASE := android-lge
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
