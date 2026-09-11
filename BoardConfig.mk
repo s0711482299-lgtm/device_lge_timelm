@@ -153,7 +153,7 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Partitions - reserved size
-include vendor/lineage/config/BoardConfigReservedSize.mk
+-include vendor/halcyon/config/BoardConfigReservedSize.mk
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
@@ -177,7 +177,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # SEPolicy
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
+include vendor/halcyon/config/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include hardware/lge/sepolicy/SEPolicy.mk
 
