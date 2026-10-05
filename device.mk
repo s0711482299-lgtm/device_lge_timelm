@@ -23,9 +23,6 @@ PRODUCT_PACKAGES += \
     TimelmApertureOverlay \
     TimelmCarrierConfigOverlay \
     TimelmFrameworksOverlay \
-    TimelmLineageSDKOverlay \
-    TimelmLineageSettingsOverlay \
-    TimelmLineageSettingsProviderOverlay \
     TimelmSettingsOverlay \
     TimelmSystemUIOverlay \
     LGEAISound
