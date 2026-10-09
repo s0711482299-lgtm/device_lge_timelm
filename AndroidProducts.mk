@@ -4,4 +4,4 @@
 #
 
 PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/lineage_timelm.mk
+    $(LOCAL_DIR)/bliss_timelm.mk
