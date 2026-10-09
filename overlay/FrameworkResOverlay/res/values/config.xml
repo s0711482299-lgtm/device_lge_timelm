@@ -645,9 +645,8 @@
     <!-- Default value for fp screen off unlock toggle, it only works for the devices that support
          fp screen off unlock-->
     <bool name="config_screen_off_udfps_default_on">false</bool>
-        
-    <bool name="config_carrier_volte_available">true</bool>
     
+    <!-- Volte Support -->
     <bool name="config_device_volte_available">true</bool>
     
     <bool name="config_device_vt_available">true</bool>
