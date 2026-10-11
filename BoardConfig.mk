@@ -50,6 +50,11 @@ TARGET_NO_BOOTLOADER := true
 
 # Display
 TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE := true
+
+# Gralloc: resolve impl-defined + UBWC + 10-bit buffers to TP10_UBWC (CamX asks for
+# these when recording HDR video; without it the buffer size is too small)
+SOONG_CONFIG_qtidisplay += target_uses_tp10_ubwc_for_10bit
+SOONG_CONFIG_qtidisplay_target_uses_tp10_ubwc_for_10bit := true
 TARGET_SCREEN_DENSITY := 420
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
