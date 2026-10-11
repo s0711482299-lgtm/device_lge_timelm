@@ -57,6 +57,11 @@ blob_fixups: blob_fixups_user_type = {
             '0A 0A 08 21 F7 EE C0 0A 70 EE 88 0B BC EE E0 0B 10 EE 10 0A 61 F3 1F',
             '0A 0A 08 21 F7 EE C0 0A C0 EE A1 0B BC EE 60 0B 10 EE 10 0A 61 F3 1F',
         ),
+    'vendor/lib64/camera/components/com.qti.stats.afd.so': (
+        blob_fixup()
+            .sig_replace('00 32 F9 03 00 32 E2 04 00 94 2C 00', '00 32 F9 03 1F 2A E2 04 00 94 2C 00')
+            .sig_replace('00 37 F9 03 00 32 C0 FF FF 17 64 07', '00 37 F9 03 1F 2A C0 FF FF 17 64 07')
+    ),
     'vendor/lib64/libdpps.so': blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
 }  # fmt: skip
