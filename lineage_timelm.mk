@@ -20,6 +20,28 @@ PRODUCT_MANUFACTURER := LGE
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := LM-V600
 
+# Device Flags
+# Maintainer name (use "_" for spaces, e.g., "rmp_22" → "rmp 22" in UI)
+AXION_MAINTAINER := Kiyomi
+
+# Processor name (use "_" for spaces)
+AXION_PROCESSOR := Snapdragon_865_5G
+
+# Define rear camera specs (multiple sensors supported)
+AXION_CAMERA_REAR_INFO := 64,13
+
+# Define front camera specs
+AXION_CAMERA_FRONT_INFO := 10
+
+# BLur
+TARGET_ENABLE_BLUR := true
+
+# AxionFX
+TARGET_INCLUDE_AXFX := true
+
+# Fix Video Playback
+TARGET_NEEDS_VULKAN_MEDIA_FIX := true
+
 PRODUCT_GMS_CLIENTID_BASE := android-lge
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
