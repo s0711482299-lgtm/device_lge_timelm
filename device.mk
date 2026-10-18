@@ -22,9 +22,9 @@ PRODUCT_PACKAGES += \
     ApertureOverlay \
     CarrierConfigOverlay \
     FrameworksResOverlay \
-    LineageSDKOverlay \
-    LineageSettingsOverlay \
-    LineageSettingsProviderOverlay \
+    #LineageSDKOverlay \
+    #LineageSettingsOverlay \
+    #LineageSettingsProviderOverlay \
     NcmTetheringOverlay \
     TimelmTelephonyOverlay \
     LGEAISound \
