@@ -133,6 +133,13 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.composer-service \
     vendor.qti.hardware.memtrack-service
 
+
+# SurfaceFlinger & Display overrides for 10-bit UBWC compatibility
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.force_8bit_graphics=1 \
+    debug.sf.enable_gl_backpressure=1 \
+    ro.surface_flinger.protected_contents=false
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
