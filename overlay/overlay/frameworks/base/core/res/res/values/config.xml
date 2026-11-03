@@ -1,0 +1,2 @@
+    <!-- Path to the refresh rate config for specific apps -->
+    <string name="config_refreshRateConfig" translatable="false">@xml/refresh_rate_config</string>
