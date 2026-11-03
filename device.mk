@@ -139,8 +139,7 @@ PRODUCT_PACKAGES += \
 # SurfaceFlinger & Display overrides for 10-bit UBWC compatibility
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.force_8bit_graphics=1 \
-    debug.sf.enable_gl_backpressure=1 \
-    ro.surface_flinger.protected_contents=false
+    debug.sf.enable_gl_backpressure=1 
 
 # DRM
 PRODUCT_PACKAGES += \
