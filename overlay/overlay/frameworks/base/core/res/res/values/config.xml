@@ -14,4 +14,7 @@
     <!-- Value 2 = FAST, Value 3 = TURBO -->
     <string name="config_oemFastChargerStatusValue" translatable="false">2</string>
 
+    <!-- High Performance Transitions -->
+    <bool name="config_deviceSupportsHighPerfTransitions">true</bool>
+
 </resources>
