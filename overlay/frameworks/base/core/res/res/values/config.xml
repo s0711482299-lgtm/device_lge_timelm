@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Path to the refresh rate config for specific apps -->
+    <string name="config_refreshRateConfig" translatable="false">@xml/refresh_rate_config</string>
+
+    <!-- Pocket Lock -->
+    <bool name="config_pocketModeSupported">true</bool>
+    <bool name="config_pocketUseLightSensor">true</bool>
+
+    <!-- Fast Charging -->
+    <string name="config_oemFastChargerStatusPath" translatable="false">/sys/class/power_supply/battery/charge_type</string>
+    
+    <!-- Value 2 = FAST, Value 3 = TURBO -->
+    <string name="config_oemFastChargerStatusValue" translatable="false">2</string>
+
+    <!-- High Performance Transitions -->
+    <bool name="config_deviceSupportsHighPerfTransitions">true</bool>
+
+</resources>
