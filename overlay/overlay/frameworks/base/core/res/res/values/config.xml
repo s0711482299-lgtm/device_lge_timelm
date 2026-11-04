@@ -1,2 +1,6 @@
-    <!-- Path to the refresh rate config for specific apps -->
+<!-- Path to the refresh rate config for specific apps -->
     <string name="config_refreshRateConfig" translatable="false">@xml/refresh_rate_config</string>
+
+<!-- Pocket Lock -->
+    <bool name="config_pocketModeSupported">true</bool>
+    <bool name="config_pocketUseLightSensor">true</bool
