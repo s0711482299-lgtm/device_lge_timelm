@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+from pathlib import Path
+import re
+
 from extract_utils.fixups_blob import (
     blob_fixup,
     blob_fixups_user_type,
@@ -18,6 +21,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
+    'device/lge/timelm',
     'hardware/lge',
     'hardware/qcom-caf/common/libqti-perfd-client',
     'hardware/qcom-caf/sm8250',
@@ -99,6 +103,46 @@ blob_fixups: blob_fixups_user_type = {
     ),
 }  # fmt: skip
 
+IMS_SHIM_SHARED_LIBS = {
+    'libims.lge': ['libbinder_ims', 'libutils_ims'],
+    'libimscamerajni.lge': ['libbinder_ims', 'libutils_ims', 'libgui_ims'],
+    'libimsmmpf.lge': [
+        'libhidlbase_ims',
+        'libhidltransport_ims',
+        'libmedia_ims',
+        'libui_ims',
+        'libgui_ims',
+    ],
+    'libimswms.lge': ['libutils_ims', 'libhidlbase_ims', 'libhidltransport_ims'],
+}
+
+
+def add_ims_shim_shared_libs():
+    bp_path = Path(__file__).resolve().parents[3] / 'vendor/lge/timelm/Android.bp'
+    if not bp_path.is_file():
+        return
+
+    content = bp_path.read_text()
+    for module_name, shims in IMS_SHIM_SHARED_LIBS.items():
+        pattern = re.compile(
+            rf'(name: "{re.escape(module_name)}",.*?shared_libs: \[\n)(.*?)(\n\s*\],)',
+            re.DOTALL,
+        )
+
+        def _repl(match):
+            existing = match.group(2)
+            additions = ''.join(
+                f'\n                "{shim}",'
+                for shim in shims
+                if f'"{shim}"' not in existing
+            )
+            return f'{match.group(1)}{existing}{additions}{match.group(3)}'
+
+        content = pattern.sub(_repl, content, count=1)
+
+    bp_path.write_text(content)
+
+
 module = ExtractUtilsModule(
     'timelm',
     'lge',
@@ -110,3 +154,4 @@ module = ExtractUtilsModule(
 if __name__ == '__main__':
     utils = ExtractUtils.device(module)
     utils.run()
+    add_ims_shim_shared_libs()

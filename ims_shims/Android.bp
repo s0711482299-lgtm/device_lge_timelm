@@ -1,0 +1,156 @@
+//
+// SPDX-FileCopyrightText: Paranoid Android
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libbinder_ims",
+    srcs: ["libbinder_shim.cpp"],
+    version_script: "libbinder_shim.map",
+    system_ext_specific: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: ["liblog"],
+    cflags: ["-Wall", "-Wno-unused-parameter", "-fno-exceptions"],
+}
+
+cc_library_shared {
+    name: "libgui_ims",
+    srcs: ["libgui_shim.cpp"],
+    version_script: "libgui_shim.map",
+    system_ext_specific: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: ["liblog"],
+    cflags: ["-Wall", "-Wno-unused-parameter", "-fno-exceptions"],
+}
+
+cc_library_shared {
+    name: "libhidlbase_ims",
+    srcs: ["libhidlbase_shim.cpp"],
+    version_script: "libhidlbase_shim.map",
+    system_ext_specific: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: ["liblog"],
+    cflags: ["-Wall", "-Wno-unused-parameter", "-fno-exceptions"],
+}
+
+cc_library_shared {
+    name: "libhidltransport_ims",
+    srcs: ["libhidltransport_shim.cpp"],
+    version_script: "libhidltransport_shim.map",
+    system_ext_specific: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: ["liblog"],
+    cflags: ["-Wall", "-Wno-unused-parameter", "-fno-exceptions"],
+}
+
+cc_library_shared {
+    name: "libhwbinder_ims",
+    srcs: ["libhwbinder_shim.cpp"],
+    version_script: "libhwbinder_shim.map",
+    system_ext_specific: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: ["liblog"],
+    cflags: ["-Wall", "-Wno-unused-parameter", "-fno-exceptions"],
+}
+
+cc_library_shared {
+    name: "libmedia_ims",
+    srcs: ["libmedia_shim.cpp"],
+    version_script: "libmedia_shim.map",
+    system_ext_specific: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: ["liblog"],
+    cflags: ["-Wall", "-Wno-unused-parameter", "-fno-exceptions"],
+}
+
+cc_library_shared {
+    name: "libui_ims",
+    srcs: ["libui_shim.cpp"],
+    version_script: "libui_shim.map",
+    system_ext_specific: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: ["liblog"],
+    cflags: ["-Wall", "-Wno-unused-parameter", "-fno-exceptions"],
+}
+
+cc_library_shared {
+    name: "libutils_ims",
+    srcs: ["libutils_shim.cpp"],
+    version_script: "libutils_shim.map",
+    system_ext_specific: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: ["liblog"],
+    cflags: ["-Wall", "-Wno-unused-parameter", "-fno-exceptions"],
+}
+
+install_symlink {
+    name: "libbinder_ims_priv-app",
+    system_ext_specific: true,
+    installed_location: "priv-app/Ims6/lib/arm64/libbinder.so",
+    symlink_target: "/system_ext/lib64/libbinder_ims.so",
+}
+
+install_symlink {
+    name: "libgui_ims_priv-app",
+    system_ext_specific: true,
+    installed_location: "priv-app/Ims6/lib/arm64/libgui.so",
+    symlink_target: "/system_ext/lib64/libgui_ims.so",
+}
+
+install_symlink {
+    name: "libhidlbase_ims_priv-app",
+    system_ext_specific: true,
+    installed_location: "priv-app/Ims6/lib/arm64/libhidlbase.so",
+    symlink_target: "/system_ext/lib64/libhidlbase_ims.so",
+}
+
+install_symlink {
+    name: "libhidltransport_ims_priv-app",
+    system_ext_specific: true,
+    installed_location: "priv-app/Ims6/lib/arm64/libhidltransport.so",
+    symlink_target: "/system_ext/lib64/libhidltransport_ims.so",
+}
+
+install_symlink {
+    name: "libhwbinder_ims_priv-app",
+    system_ext_specific: true,
+    installed_location: "priv-app/Ims6/lib/arm64/libhwbinder.so",
+    symlink_target: "/system_ext/lib64/libhwbinder_ims.so",
+}
+
+install_symlink {
+    name: "libmedia_ims_priv-app",
+    system_ext_specific: true,
+    installed_location: "priv-app/Ims6/lib/arm64/libmedia.so",
+    symlink_target: "/system_ext/lib64/libmedia_ims.so",
+}
+
+install_symlink {
+    name: "libui_ims_priv-app",
+    system_ext_specific: true,
+    installed_location: "priv-app/Ims6/lib/arm64/libui.so",
+    symlink_target: "/system_ext/lib64/libui_ims.so",
+}
+
+install_symlink {
+    name: "libutils_ims_priv-app",
+    system_ext_specific: true,
+    installed_location: "priv-app/Ims6/lib/arm64/libutils.so",
+    symlink_target: "/system_ext/lib64/libutils_ims.so",
+}

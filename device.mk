@@ -299,6 +299,25 @@ $(call soong_config_set,lineage_recovery,bootloader_message_offset,128)
 PRODUCT_PACKAGES += \
     android.hardware.radio-service.lge
 
+# IMS JNI Symlinks
+PRODUCT_PACKAGES += \
+    libbinder_ims \
+    libgui_ims \
+    libhidlbase_ims \
+    libhidltransport_ims \
+    libhwbinder_ims \
+    libmedia_ims \
+    libui_ims \
+    libutils_ims \
+    libbinder_ims_priv-app \
+    libgui_ims_priv-app \
+    libhidlbase_ims_priv-app \
+    libhidltransport_ims_priv-app \
+    libhwbinder_ims_priv-app \
+    libmedia_ims_priv-app \
+    libui_ims_priv-app \
+    libutils_ims_priv-app
+
 # Rootdir
 PRODUCT_PACKAGES += \
     init.mdm.sh \
