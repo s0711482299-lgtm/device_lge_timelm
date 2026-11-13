@@ -5,6 +5,9 @@ audio.offload.gapless.enabled=true
 
 # Camera
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.aperture,org.lineageos.aperture.dev,com.lge.camera
+persist.vendor.camera.privapp.list=com.lge.camera
+ro.product.lge.audio.4mic=true
+ro.product.lge.hifi_rec_asmr=true
 
 # CNE
 persist.vendor.cne.feature=1
