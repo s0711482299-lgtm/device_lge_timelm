@@ -24,9 +24,15 @@
     <string name="aisound_profile_title">Profiles</string>
 
     <string name="aisound_profile_auto">Auto</string>
+    <string name="aisound_profile_auto_summary">Sound that matches the type of audio by dynamically analyzing the audio characteristics</string>
     <string name="aisound_profile_cinema">Cinema</string>
+    <string name="aisound_profile_cinema_summary">Immersive 3D and dynamic sound that sounds like you\'re there</string>
     <string name="aisound_profile_music">Music</string>
+    <string name="aisound_profile_music_summary">Rich sound so you can immerse yourself in the music</string>
     <string name="aisound_profile_voice">Voice</string>
+    <string name="aisound_profile_voice_summary">Sound catered to clearer voices</string>
 
-    <string name="aisound_description">This function needs DSP OFFLOAD playback route, AOSP does not take that by default, please use a professional player and select DIRECT/OFFLOAD (Hi-Res output) for this function</string>
+    <string name="aisound_description">Applies LG 3D Sound Engine processing to audio playback across apps on speaker and headphones</string>
+    <string name="aisound_qs_tile_label">LG 3D Sound</string>
+    <string name="aisound_qs_off">Off</string>
 </resources>

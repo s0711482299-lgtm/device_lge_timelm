@@ -24,9 +24,15 @@
     <string name="aisound_profile_title">选择配置</string>
 
     <string name="aisound_profile_auto">自动</string>
+    <string name="aisound_profile_auto_summary">通过动态分析音频特征自动匹配最适合的音效</string>
     <string name="aisound_profile_cinema">影院</string>
+    <string name="aisound_profile_cinema_summary">身临其境的 3D 环绕与动态声场体验</string>
     <string name="aisound_profile_music">音乐</string>
+    <string name="aisound_profile_music_summary">丰富饱满的音质，让您沉浸在音乐之中</string>
     <string name="aisound_profile_voice">语音</string>
+    <string name="aisound_profile_voice_summary">针对人声优化，让对话更加清晰</string>
 
-    <string name="aisound_description">该功能需要使用DSP解码路径, AOSP不默认使用该路径播放, 请使用专业播放器软件选择OFFLOAD/DIRECT(Hi-Res output)播放模式使用</string>
+    <string name="aisound_description">在扬声器和耳机上为所有应用启用 LG 3D 声音引擎音效处理</string>
+    <string name="aisound_qs_tile_label">LG 3D 音效</string>
+    <string name="aisound_qs_off">关闭</string>
 </resources>

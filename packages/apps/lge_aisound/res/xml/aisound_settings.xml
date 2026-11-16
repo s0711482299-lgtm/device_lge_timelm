@@ -2,7 +2,7 @@
 <!--
      Copyright (C) 2024 The LineageOS Project
 
-     Licensed under the Apache License, Version 2.0 (the "License"
+     Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
 
@@ -18,19 +18,45 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/aisound_title">
 
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="aisound_banner"
+        android:layout="@layout/aisound_banner"
+        android:selectable="false" />
+
     <com.android.settingslib.widget.MainSwitchPreference
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:key="aisound_enable"
+        android:persistent="false"
         android:title="@string/aisound_enable" />
 
-    <ListPreference
-        android:key="aisound_profile"
-        android:entries="@array/aisound_profile_entries"
-        android:entryValues="@array/aisound_profile_values"
-        android:defaultValue="0"
-        android:title="@string/aisound_profile_title"
-        android:summary="%s"
-        android:icon="@drawable/ic_preset" />
+    <PreferenceCategory
+        android:key="aisound_profile_category"
+        android:title="@string/aisound_profile_title">
+
+        <com.android.settingslib.widget.SelectorWithWidgetPreference
+            android:key="aisound_mode_auto"
+            android:persistent="false"
+            android:title="@string/aisound_profile_auto"
+            android:summary="@string/aisound_profile_auto_summary" />
+
+        <com.android.settingslib.widget.SelectorWithWidgetPreference
+            android:key="aisound_mode_cinema"
+            android:persistent="false"
+            android:title="@string/aisound_profile_cinema"
+            android:summary="@string/aisound_profile_cinema_summary" />
+
+        <com.android.settingslib.widget.SelectorWithWidgetPreference
+            android:key="aisound_mode_music"
+            android:persistent="false"
+            android:title="@string/aisound_profile_music"
+            android:summary="@string/aisound_profile_music_summary" />
+
+        <com.android.settingslib.widget.SelectorWithWidgetPreference
+            android:key="aisound_mode_voice"
+            android:persistent="false"
+            android:title="@string/aisound_profile_voice"
+            android:summary="@string/aisound_profile_voice_summary" />
+    </PreferenceCategory>
 
     <com.android.settingslib.widget.FooterPreference
         android:key="footer_preference"

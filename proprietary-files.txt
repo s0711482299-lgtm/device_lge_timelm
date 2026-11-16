@@ -87,6 +87,7 @@ vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 system_ext/etc/permissions/audiosphere.xml
 system_ext/framework/audiosphere.jar
 vendor/lib/hw/audio.primary.kona.so
+vendor/lib/soundfx/libaisound.so
 vendor/lib/soundfx/libasphere.so
 vendor/lib/soundfx/liblgeffectwrapper.so
 vendor/lib/soundfx/libqcbassboost.so
@@ -123,9 +124,11 @@ vendor/etc/audio_platform_info_intcodec.xml
 vendor/etc/audio_policy_volumes.xml
 vendor/etc/default_volume_tables.xml
 vendor/etc/graphite_ipc_platform_info.xml
+vendor/etc/aisound_tune.xml
 vendor/etc/mixer_paths.xml
 vendor/etc/sound_trigger_mixer_paths.xml
 vendor/etc/sound_trigger_platform_info.xml
+vendor/etc/upmix_model.tflite
 
 # Bluetooth firmware
 vendor/firmware/htbtfw20.tlv
