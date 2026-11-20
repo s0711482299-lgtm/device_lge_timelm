@@ -130,9 +130,7 @@ public class AISound {
     }
 
     private static boolean isEligiblePlayback(AudioPlaybackConfiguration cfg) {
-        int state = cfg.getPlayerState();
-        if (state != AudioPlaybackConfiguration.PLAYER_STATE_STARTED
-                && state != AudioPlaybackConfiguration.PLAYER_STATE_PAUSED) {
+        if (cfg.getPlayerState() != AudioPlaybackConfiguration.PLAYER_STATE_STARTED) {
             return false;
         }
         if (cfg.getSessionId() <= 0) {
@@ -144,7 +142,11 @@ public class AISound {
             return false;
         }
         AudioAttributes attrs = cfg.getAudioAttributes();
-        return attrs == null || attrs.getUsage() != AudioAttributes.USAGE_GAME;
+        if (attrs == null) {
+            return true;
+        }
+        int usage = attrs.getUsage();
+        return usage == AudioAttributes.USAGE_MEDIA || usage == AudioAttributes.USAGE_UNKNOWN;
     }
 
     private static void syncPlaybackSessionsLocked(
@@ -164,10 +166,12 @@ public class AISound {
             }
         }
 
+        // aise_core instances share global state: release before creating a new one.
+        boolean releaseAll = enabled && hasNewSession;
         Iterator<Map.Entry<Integer, AudioEffect>> it = sEffects.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<Integer, AudioEffect> entry = it.next();
-            if (!activeSessions.contains(entry.getKey())) {
+            if (releaseAll || !activeSessions.contains(entry.getKey())) {
                 releaseEffect(entry.getValue());
                 it.remove();
             }
