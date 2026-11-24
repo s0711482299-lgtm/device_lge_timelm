@@ -1,0 +1,10 @@
+android_app_import {
+    name: "FossifyGallery",
+    apk: "FossifyGallery.apk",
+    certificate: "PRESIGNED",
+    presigned: true,
+    dex_preopt: {
+        enabled: true,
+    },
+    privileged: false,
+}

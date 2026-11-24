@@ -30,7 +30,9 @@ PRODUCT_PACKAGES += \
     LGEAISound \
     SettingsOverlay \
     SystemUIOverlay \
-    WifiResourcesOverlay
+    WifiResourcesOverlay \
+    FossifyGallery
+
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
